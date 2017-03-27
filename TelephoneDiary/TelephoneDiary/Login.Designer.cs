@@ -28,126 +28,156 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lUsername = new MaterialSkin.Controls.MaterialLabel();
-            this.btLogin = new MaterialSkin.Controls.MaterialFlatButton();
-            this.tUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.lPassword = new MaterialSkin.Controls.MaterialLabel();
-            this.tPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.components = new System.ComponentModel.Container();
+            this.Loginbttn = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Usertxt = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.Passtxt = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.appData = new TelephoneDiary.AppData();
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersTableAdapter = new TelephoneDiary.AppDataTableAdapters.UsersTableAdapter();
+            this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lUsername
+            // Loginbttn
             // 
-            this.lUsername.AutoSize = true;
-            this.lUsername.Depth = 0;
-            this.lUsername.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lUsername.Location = new System.Drawing.Point(28, 107);
-            this.lUsername.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(88, 19);
-            this.lUsername.TabIndex = 0;
-            this.lUsername.Text = "User Name:";
+            this.Loginbttn.AutoSize = true;
+            this.Loginbttn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Loginbttn.Depth = 0;
+            this.Loginbttn.Location = new System.Drawing.Point(249, 190);
+            this.Loginbttn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Loginbttn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Loginbttn.Name = "Loginbttn";
+            this.Loginbttn.Primary = false;
+            this.Loginbttn.Size = new System.Drawing.Size(52, 36);
+            this.Loginbttn.TabIndex = 0;
+            this.Loginbttn.Text = "Login";
+            this.Loginbttn.UseVisualStyleBackColor = true;
+            this.Loginbttn.Click += new System.EventHandler(this.Loginbttn_Click);
             // 
-            // btLogin
+            // Usertxt
             // 
-            this.btLogin.AutoSize = true;
-            this.btLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btLogin.Depth = 0;
-            this.btLogin.Location = new System.Drawing.Point(220, 191);
-            this.btLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btLogin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btLogin.Name = "btLogin";
-            this.btLogin.Primary = false;
-            this.btLogin.Size = new System.Drawing.Size(52, 36);
-            this.btLogin.TabIndex = 1;
-            this.btLogin.Text = "Login";
-            this.btLogin.UseVisualStyleBackColor = true;
-            this.btLogin.Click += new System.EventHandler(this.LogButt_Click);
+            this.Usertxt.Depth = 0;
+            this.Usertxt.Hint = "";
+            this.Usertxt.Location = new System.Drawing.Point(163, 112);
+            this.Usertxt.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Usertxt.Name = "Usertxt";
+            this.Usertxt.PasswordChar = '\0';
+            this.Usertxt.SelectedText = "";
+            this.Usertxt.SelectionLength = 0;
+            this.Usertxt.SelectionStart = 0;
+            this.Usertxt.Size = new System.Drawing.Size(235, 23);
+            this.Usertxt.TabIndex = 1;
+            this.Usertxt.UseSystemPasswordChar = false;
             // 
-            // tUsername
+            // materialLabel1
             // 
-            this.tUsername.Depth = 0;
-            this.tUsername.Hint = "";
-            this.tUsername.Location = new System.Drawing.Point(139, 107);
-            this.tUsername.MouseState = MaterialSkin.MouseState.HOVER;
-            this.tUsername.Name = "tUsername";
-            this.tUsername.PasswordChar = '\0';
-            this.tUsername.SelectedText = "";
-            this.tUsername.SelectionLength = 0;
-            this.tUsername.SelectionStart = 0;
-            this.tUsername.Size = new System.Drawing.Size(227, 23);
-            this.tUsername.TabIndex = 2;
-            this.tUsername.UseSystemPasswordChar = false;
-            this.tUsername.Click += new System.EventHandler(this.LoginType_Click);
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(61, 112);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(84, 19);
+            this.materialLabel1.TabIndex = 2;
+            this.materialLabel1.Text = "UserName:";
             // 
-            // lPassword
+            // Passtxt
             // 
-            this.lPassword.AutoSize = true;
-            this.lPassword.Depth = 0;
-            this.lPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lPassword.Location = new System.Drawing.Point(28, 145);
-            this.lPassword.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lPassword.Name = "lPassword";
-            this.lPassword.Size = new System.Drawing.Size(79, 18);
-            this.lPassword.TabIndex = 0;
-            this.lPassword.Text = "Password:";
+            this.Passtxt.Depth = 0;
+            this.Passtxt.Hint = "";
+            this.Passtxt.Location = new System.Drawing.Point(163, 149);
+            this.Passtxt.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Passtxt.Name = "Passtxt";
+            this.Passtxt.PasswordChar = '*';
+            this.Passtxt.SelectedText = "";
+            this.Passtxt.SelectionLength = 0;
+            this.Passtxt.SelectionStart = 0;
+            this.Passtxt.Size = new System.Drawing.Size(235, 23);
+            this.Passtxt.TabIndex = 3;
+            this.Passtxt.UseSystemPasswordChar = false;
             // 
-            // tPassword
+            // materialLabel2
             // 
-            this.tPassword.Depth = 0;
-            this.tPassword.Hint = "";
-            this.tPassword.Location = new System.Drawing.Point(139, 145);
-            this.tPassword.MouseState = MaterialSkin.MouseState.HOVER;
-            this.tPassword.Name = "tPassword";
-            this.tPassword.PasswordChar = '*';
-            this.tPassword.SelectedText = "";
-            this.tPassword.SelectionLength = 0;
-            this.tPassword.SelectionStart = 0;
-            this.tPassword.Size = new System.Drawing.Size(227, 23);
-            this.tPassword.TabIndex = 2;
-            this.tPassword.UseSystemPasswordChar = false;
-            this.tPassword.Click += new System.EventHandler(this.LoginType_Click);
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(66, 149);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(79, 19);
+            this.materialLabel2.TabIndex = 4;
+            this.materialLabel2.Text = "Password:";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(372, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(425, 91);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(224, 209);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.Size = new System.Drawing.Size(160, 163);
+            this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            // 
+            // appData
+            // 
+            this.appData.DataSetName = "AppData";
+            this.appData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // usersBindingSource
+            // 
+            this.usersBindingSource.DataMember = "Users";
+            this.usersBindingSource.DataSource = this.appData;
+            // 
+            // usersTableAdapter
+            // 
+            this.usersTableAdapter.ClearBeforeFill = true;
+            // 
+            // usersBindingSource1
+            // 
+            this.usersBindingSource1.DataMember = "Users";
+            this.usersBindingSource1.DataSource = this.appData;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 295);
+            this.ClientSize = new System.Drawing.Size(616, 309);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.tPassword);
-            this.Controls.Add(this.tUsername);
-            this.Controls.Add(this.btLogin);
-            this.Controls.Add(this.lPassword);
-            this.Controls.Add(this.lUsername);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.Passtxt);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.Usertxt);
+            this.Controls.Add(this.Loginbttn);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
-            this.KeyDown += Form_KeyDown;
 
         }
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialLabel lUsername;
-        private MaterialSkin.Controls.MaterialFlatButton btLogin;
-        private MaterialSkin.Controls.MaterialSingleLineTextField tUsername;
-        private MaterialSkin.Controls.MaterialLabel lPassword;
-        private MaterialSkin.Controls.MaterialSingleLineTextField tPassword;
+        private MaterialSkin.Controls.MaterialFlatButton Loginbttn;
+        private MaterialSkin.Controls.MaterialSingleLineTextField Usertxt;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField Passtxt;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private AppData appData;
+        private System.Windows.Forms.BindingSource usersBindingSource;
+        private AppDataTableAdapters.UsersTableAdapter usersTableAdapter;
+        private System.Windows.Forms.BindingSource usersBindingSource1;
     }
 }

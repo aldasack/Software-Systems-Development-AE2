@@ -13,17 +13,16 @@ namespace TelephoneDiary
 {
     public partial class Form1 : MaterialSkin.Controls.MaterialForm
     {
-        // stores the login Form, to exit the application correctly
-        private Login login;
-        private bool newEntry = false;
-
-        public Form1(Login pLogin)
+        private Form login;
+        public Form1(Form pLogin)
         {
+            #region MaterialSkin
             InitializeComponent();
             var skinManager = MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            #endregion
 
             login = pLogin;
         }
@@ -109,54 +108,9 @@ namespace TelephoneDiary
             }
         }
 
-        #region Calender functons
-        private DateTime selectedDate = new DateTime(1,1,1);
-        private void monthCalender1_DateSelected(object sender, DateRangeEventArgs e)
-        {
-            selectedDate = e.Start;
-        }
-
-        private void btSaveEvent_Click(object sender, EventArgs e)
-        {
-            //checking if a year has been selected first
-            if (selectedDate.Year != 1 && newEntry == true)
-            {
-                monthCalendar1.AddBoldedDate(selectedDate);
-                monthCalendar1.UpdateBoldedDates();
-                newEntry = false;
-                // Deactivates input fields and resets them
-                tbDescription.Enabled = false;
-                tbDescription.Text = "";
-                tbStaff.Enabled = false;
-                tbStaff.Text = "";
-                cbHour.Enabled = false;
-                cbHour.SelectedIndex = 12;
-                cbMinute.Enabled = false;
-                cbMinute.SelectedIndex = 0;
-            }
-
-        }
-        #endregion
         private void OnForm_Close(object sender, EventArgs e)
         {
             login.Close();
-        }
-
-        private void btAddEvent_Click(object sender, EventArgs e)
-        {
-            // Activates input fields
-            tbDescription.Enabled = true;
-            tbStaff.Enabled = true;
-            cbHour.Enabled = true;
-            cbMinute.Enabled = true;
-            newEntry = true;
-            cbHour.SelectedIndex = 12;
-            cbMinute.SelectedIndex = 0;
-        }
-
-        private void btDeleteEvent_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
