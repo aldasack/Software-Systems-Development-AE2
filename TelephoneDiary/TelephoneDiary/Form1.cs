@@ -25,6 +25,7 @@ namespace TelephoneDiary
             #endregion
 
             login = pLogin;
+            this.FormClosing += OnForm_Close;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -110,7 +111,56 @@ namespace TelephoneDiary
 
         private void OnForm_Close(object sender, EventArgs e)
         {
-            login.Close();
+            if(login != null)
+                login.Close();
         }
+
+        #region Event Handling
+        private DateTime selectedDate = new DateTime(1, 1, 1);
+        private bool newEntry = false;
+        private void calender_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            selectedDate = e.Start;
+        }
+        private void AddEventBttn_Click(object sender, EventArgs e)
+        {
+            // Activates input fields
+            Descriptiontxt.Enabled = true;
+            Coachtxt.Enabled = true;
+            cbHour.Enabled = true;
+            cbMinutes.Enabled = true;
+            newEntry = true;
+            cbHour.SelectedIndex = 12;
+            cbMinutes.SelectedIndex = 0;
+            SaveEventBttn.Enabled = true;
+        }
+
+        private void DeleteEventBttn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaveEventBttn_Click(object sender, EventArgs e)
+        {
+            //checking if a year has been selected first
+            if (selectedDate.Year != 1 && newEntry == true)
+            {
+                calendar.AddBoldedDate(selectedDate);
+                calendar.UpdateBoldedDates();
+                newEntry = false;
+                // Deactivates input fields and resets them
+                Descriptiontxt.Enabled = false;
+                Descriptiontxt.Text = "";
+                Coachtxt.Enabled = false;
+                Coachtxt.Text = "";
+                cbHour.Enabled = false;
+                cbHour.SelectedIndex = 12;
+                cbMinutes.Enabled = false;
+                cbMinutes.SelectedIndex = 0;
+                SaveEventBttn.Enabled = false;
+            }
+
+        }
+        #endregion
     }
 }

@@ -35,3 +35,16 @@ C:\Users\Alex\Downloads\TelephoneDiary\TelephoneDiary\TelephoneDiary\obj\Debug\T
 C:\Users\Alex\Downloads\TelephoneDiary\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.Login.resources
 C:\Users\Alex\Downloads\TelephoneDiary\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.Properties.Resources.resources
 C:\Users\Alex\Downloads\TelephoneDiary\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.csproj.GenerateResource.Cache
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\bin\Debug\TelephoneDiary.exe.config
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.exe
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.pdb
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\bin\Debug\Database.mdf
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\bin\Debug\Database_log.ldf
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\bin\Debug\TelephoneDiary.exe
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\bin\Debug\TelephoneDiary.pdb
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\bin\Debug\MaterialSkin.dll
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.csprojResolveAssemblyReference.cache
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.Form1.resources
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.Login.resources
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.Properties.Resources.resources
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.csproj.GenerateResource.Cache
