@@ -8,12 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace TelephoneDiary
 {
     public partial class Form1 : MaterialSkin.Controls.MaterialForm
     {
         private Form login;
+        private string connectionString = "";
+        private SqlConnection conn;
+
         public Form1(Form pLogin)
         {
             #region MaterialSkin
@@ -26,10 +31,14 @@ namespace TelephoneDiary
 
             login = pLogin;
             this.FormClosing += OnForm_Close;
+
+            connectionString = ConfigurationManager.ConnectionStrings["TelephoneDiary.Properties.Settings.DatabaseConnectionString"].ConnectionString;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "appData.Events". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.eventsTableAdapter.Fill(this.appData.Events);
             // TODO: This line of code loads data into the 'appData.PhoneBooks' table. You can move, or remove it, as needed.
             this.phoneBooksTableAdapter.Fill(this.appData.PhoneBooks);
             Edit(false);
@@ -118,6 +127,7 @@ namespace TelephoneDiary
         #region Event Handling
         private DateTime selectedDate = new DateTime(1, 1, 1);
         private bool newEntry = false;
+
         private void calender_DateSelected(object sender, DateRangeEventArgs e)
         {
             selectedDate = e.Start;
@@ -137,7 +147,8 @@ namespace TelephoneDiary
 
         private void DeleteEventBttn_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Are you sure want to delete this record?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                eventsBindingSource.RemoveCurrent();
         }
 
         private void SaveEventBttn_Click(object sender, EventArgs e)
@@ -148,6 +159,46 @@ namespace TelephoneDiary
                 calendar.AddBoldedDate(selectedDate);
                 calendar.UpdateBoldedDates();
                 newEntry = false;
+
+                string time = cbHour.Text + ":" + cbMinutes.Text;
+
+                // Input data into database
+                // open and closing of object is handled through the using statement
+                //string sql = "INSERT INTO Events (Date, Time, Description, Coach) VALUES (" + selectedDate + ", " + time + ", '" + Descriptiontxt.Text + "', '" + Coachtxt.Text + "' )";
+                //string sql = "INSERT INTO Events (Date, Time, Description, Coach) VALUES (@date, @time, @description, @coach)";
+                string sql = "INSERT INTO Events (Description, Coach) VALUES (@description, @coach)";
+                using (conn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand com = new SqlCommand(sql, conn))
+                    {
+                        try
+                        {
+                            //conn.Open();
+                            //com.Parameters.Add("@date", SqlDbType.Date).Value = selectedDate;
+                            //com.Parameters.Add("@time", SqlDbType.Time).Value = TimeSpan.Parse(time);
+                            com.Parameters.Add("@description", SqlDbType.VarChar).Value = Descriptiontxt.Text;
+                            com.Parameters.Add("@coach", SqlDbType.VarChar).Value = Coachtxt.Text;
+
+                            conn.Open();
+                            int result = com.ExecuteNonQuery();
+                            if(result == 0)
+                            {
+                                result++;
+                            }
+                        }
+                        catch (Exception sqlE)
+                        {
+                            Console.WriteLine(sqlE.Message);
+                        }
+                    }
+                }
+
+                // TODO: Get this shit working. No new Data is shown....
+                // refresh the data grid to show new data
+                eventsTableAdapter.Update(appData.Events);
+                //eventsDataGrid.Refresh();
+                eventsDataGrid.Update();
+
                 // Deactivates input fields and resets them
                 Descriptiontxt.Enabled = false;
                 Descriptiontxt.Text = "";
@@ -158,7 +209,7 @@ namespace TelephoneDiary
                 cbMinutes.Enabled = false;
                 cbMinutes.SelectedIndex = 0;
                 SaveEventBttn.Enabled = false;
-            }
+                }
 
         }
         #endregion

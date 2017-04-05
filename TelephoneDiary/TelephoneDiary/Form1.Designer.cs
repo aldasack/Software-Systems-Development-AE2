@@ -55,9 +55,16 @@ namespace TelephoneDiary
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.eventsDataGrid = new System.Windows.Forms.DataGridView();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coachDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DeleteEventBttn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.AddEventBttn = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cbMinutes = new System.Windows.Forms.ComboBox();
             this.cbHour = new System.Windows.Forms.ComboBox();
             this.SaveEventBttn = new MaterialSkin.Controls.MaterialFlatButton();
@@ -69,13 +76,16 @@ namespace TelephoneDiary
             this.calendar = new System.Windows.Forms.MonthCalendar();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.phoneBooksTableAdapter = new TelephoneDiary.AppDataTableAdapters.PhoneBooksTableAdapter();
+            this.eventsTableAdapter = new TelephoneDiary.AppDataTableAdapters.EventsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.phoneBooksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventsDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -380,9 +390,9 @@ namespace TelephoneDiary
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.eventsDataGrid);
             this.tabPage2.Controls.Add(this.DeleteEventBttn);
             this.tabPage2.Controls.Add(this.AddEventBttn);
-            this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Controls.Add(this.cbMinutes);
             this.tabPage2.Controls.Add(this.cbHour);
             this.tabPage2.Controls.Add(this.SaveEventBttn);
@@ -398,6 +408,66 @@ namespace TelephoneDiary
             this.tabPage2.Size = new System.Drawing.Size(1006, 500);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Events";
+            // 
+            // eventsDataGrid
+            // 
+            this.eventsDataGrid.AllowUserToAddRows = false;
+            this.eventsDataGrid.AllowUserToDeleteRows = false;
+            this.eventsDataGrid.AllowUserToOrderColumns = true;
+            this.eventsDataGrid.AutoGenerateColumns = false;
+            this.eventsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.eventsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dateDataGridViewTextBoxColumn,
+            this.timeDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.coachDataGridViewTextBoxColumn,
+            this.idDataGridViewTextBoxColumn});
+            this.eventsDataGrid.DataSource = this.eventsBindingSource;
+            this.eventsDataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.eventsDataGrid.Location = new System.Drawing.Point(282, 38);
+            this.eventsDataGrid.Name = "eventsDataGrid";
+            this.eventsDataGrid.Size = new System.Drawing.Size(718, 459);
+            this.eventsDataGrid.TabIndex = 13;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            // 
+            // timeDataGridViewTextBoxColumn
+            // 
+            this.timeDataGridViewTextBoxColumn.DataPropertyName = "Time";
+            this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
+            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // coachDataGridViewTextBoxColumn
+            // 
+            this.coachDataGridViewTextBoxColumn.DataPropertyName = "Coach";
+            this.coachDataGridViewTextBoxColumn.HeaderText = "Coach";
+            this.coachDataGridViewTextBoxColumn.Name = "coachDataGridViewTextBoxColumn";
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // eventsBindingSource
+            // 
+            this.eventsBindingSource.DataMember = "Events";
+            this.eventsBindingSource.DataSource = this.appDataBindingSource;
+            // 
+            // appDataBindingSource
+            // 
+            this.appDataBindingSource.DataSource = this.appData;
+            this.appDataBindingSource.Position = 0;
             // 
             // DeleteEventBttn
             // 
@@ -424,14 +494,6 @@ namespace TelephoneDiary
             this.AddEventBttn.Text = "+";
             this.AddEventBttn.UseVisualStyleBackColor = true;
             this.AddEventBttn.Click += new System.EventHandler(this.AddEventBttn_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(282, 34);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(718, 262);
-            this.dataGridView1.TabIndex = 10;
             // 
             // cbMinutes
             // 
@@ -587,6 +649,10 @@ namespace TelephoneDiary
             // 
             this.phoneBooksTableAdapter.ClearBeforeFill = true;
             // 
+            // eventsTableAdapter
+            // 
+            this.eventsTableAdapter.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -607,7 +673,9 @@ namespace TelephoneDiary
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventsDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appDataBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -652,11 +720,19 @@ namespace TelephoneDiary
         private MaterialSkin.Controls.MaterialLabel lTime;
         private MaterialSkin.Controls.MaterialRaisedButton DeleteEventBttn;
         private MaterialSkin.Controls.MaterialRaisedButton AddEventBttn;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cbMinutes;
         private System.Windows.Forms.ComboBox cbHour;
         private MaterialSkin.Controls.MaterialFlatButton SaveEventBttn;
         private MaterialSkin.Controls.MaterialSingleLineTextField Coachtxt;
+        private System.Windows.Forms.BindingSource appDataBindingSource;
+        private System.Windows.Forms.DataGridView eventsDataGrid;
+        private System.Windows.Forms.BindingSource eventsBindingSource;
+        private AppDataTableAdapters.EventsTableAdapter eventsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coachDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
     }
 }
 

@@ -48,3 +48,7 @@ G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-De
 G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.Login.resources
 G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.Properties.Resources.resources
 G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.csproj.GenerateResource.Cache
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\bin\Debug\TelephoneDiary.exe.manifest
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\bin\Debug\TelephoneDiary.application
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.exe.manifest
+G:\Users\Alex\Documents\Uni\units\softwar-system-development\Software-Systems-Development-AE2\TelephoneDiary\TelephoneDiary\obj\Debug\TelephoneDiary.application

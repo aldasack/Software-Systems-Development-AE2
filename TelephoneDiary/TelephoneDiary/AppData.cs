@@ -4,6 +4,14 @@
 
     partial class AppData
     {
+        partial class EventsDataTable
+        {
+        }
+
+        partial class DataTable1DataTable
+        {
+        }
+
         partial class UsersDataTable
         {
         }
