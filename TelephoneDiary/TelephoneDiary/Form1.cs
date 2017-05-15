@@ -12,7 +12,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 
 namespace TelephoneDiary
-{
+{   
     public partial class Form1 : MaterialSkin.Controls.MaterialForm
     {
         private Form login;
@@ -148,7 +148,9 @@ namespace TelephoneDiary
         private void DeleteEventBttn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure want to delete this record?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
                 eventsBindingSource.RemoveCurrent();
+            }
         }
 
         private void SaveEventBttn_Click(object sender, EventArgs e)
@@ -162,10 +164,20 @@ namespace TelephoneDiary
 
                 string time = cbHour.Text + ":" + cbMinutes.Text;
 
+
+                int r = eventsTableAdapter.InsertEvent(time, Descriptiontxt.Text, Coachtxt.Text, selectedDate.ToString(), 0);
+                if(r == 0)
+                {
+                    MessageBox.Show("Data could not be inserted, please check your intput or connection", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                eventsDataGrid.DataSource = null;
+                eventsDataGrid.DataSource = eventsTableAdapter.GetData();
                 // Input data into database
                 // open and closing of object is handled through the using statement
                 //string sql = "INSERT INTO Events (Date, Time, Description, Coach) VALUES (" + selectedDate + ", " + time + ", '" + Descriptiontxt.Text + "', '" + Coachtxt.Text + "' )";
                 //string sql = "INSERT INTO Events (Date, Time, Description, Coach) VALUES (@date, @time, @description, @coach)";
+                /*
                 string sql = "INSERT INTO Events (Description, Coach) VALUES (@description, @coach)";
                 using (conn = new SqlConnection(connectionString))
                 {
@@ -192,12 +204,13 @@ namespace TelephoneDiary
                         }
                     }
                 }
-
+                */
                 // TODO: Get this shit working. No new Data is shown....
                 // refresh the data grid to show new data
-                eventsTableAdapter.Update(appData.Events);
-                //eventsDataGrid.Refresh();
+               // eventsTableAdapter.Update(appData.Events);
+                
                 eventsDataGrid.Update();
+                eventsDataGrid.Refresh();
 
                 // Deactivates input fields and resets them
                 Descriptiontxt.Enabled = false;
